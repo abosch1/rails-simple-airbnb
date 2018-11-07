@@ -1,0 +1,50 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/"Simple Airbnb</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ml-auto flex">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <a class="btn btn-outline-primary my-2 my-sm-0 ml-2" href="/flats/new"><%= link_to new_flat_path(@flat) %></a>
+        </div>
+      </div>
+    </nav>
+
+
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+     <div class="col-4">
+        <!-- insert <div class="card"> -->
+        <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')">
+        </div>
+
+
+        <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= flat.description %></h4>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2"><%= flat.number_of_guests %></i><span>3</span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2"><%= flat.price_per_night %></i>
+              </div>
+              <div class="flat-card-actions">
+                <a href="/flats/1230">More info</a>
+                <a href="#" class="ml-3 text-warning">Edit</a>
+                <a href="#" class="ml-3 text-danger">Remove</a>
+          </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
